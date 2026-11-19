@@ -19,9 +19,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> create(@RequestBody Product product) {
+    public ResponseEntity<Product> create(@RequestBody ProductRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(productService.save(product));
+                .body(productService.save(request.toProduct()));
     }
 
     @GetMapping
